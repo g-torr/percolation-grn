@@ -1,0 +1,381 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13793,        373]
+NotebookOptionsPosition[     12838,        349]
+NotebookOutlinePosition[     13174,        364]
+CellTagsIndexPosition[     13131,        361]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Section 3: Existence of giant and out-component
+\
+\>", "Title",
+ CellChangeTimes->{{3.796014960361742*^9, 3.796015043720373*^9}, {
+  3.796015095364141*^9, 3.796015097696115*^9}, {3.7960158973739853`*^9, 
+  3.796015907642308*^9}},ExpressionUUID->"6322ba30-aa11-45f1-b37f-\
+c2c4b5e1e2cc"],
+
+Cell[TextData[{
+ "Graphical method to solve the system of equations:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", " ", "=", " ", 
+    RowBox[{
+     SubscriptBox["\[Sum]", 
+      RowBox[{"k", "=", "1"}]], 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["P", "D"], "in"], "(", "k", ")"}], 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"1", "-", "t"}], ")"}], "k"]}], ")"}]}]}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "0663147d-9f73-4f08-9d46-cab9652e5e8c"],
+ "  = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["f", "1"], "(", "t", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "67808d59-c148-49a0-bafb-06cb60776f0a"],
+ "; \n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Sum]", 
+       RowBox[{"k", "=", "1"}]], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["P", "C"], "in"], "(", "k", ")"}], 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "-", "g"}], ")"}], "k"]}], ")"}]}]}], "=", " ", 
+     RowBox[{
+      SubscriptBox["f", "2"], "(", "g", ")"}]}]}], TraditionalForm]],
+  ExpressionUUID->"301a0a3e-8625-48c6-a853-a18493a056b6"],
+ " "
+}], "Subtitle",
+ CellChangeTimes->{{3.7960150565798807`*^9, 3.7960150594239197`*^9}, {
+  3.796015338710286*^9, 3.7960153969667053`*^9}, {3.7960159435673847`*^9, 
+  3.79601595559689*^9}, {3.796016077476351*^9, 3.7960161570342197`*^9}, {
+  3.796018848261653*^9, 3.796019022932053*^9}, {3.796035852288179*^9, 
+  3.796035879498651*^9}},ExpressionUUID->"23997204-3b4f-47ee-9ffe-\
+8fcdb189df2a"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"d", "=."}], "\n", 
+    RowBox[{"c", "=."}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"G", "[", 
+       RowBox[{"x_", ",", "d_"}], "]"}], "=", 
+      RowBox[{
+       SubsuperscriptBox["\[Sum]", 
+        RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"PoissonDistribution", "[", "d", "]"}], ",", 
+          RowBox[{"k", "-", "1"}]}], "]"}], 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", "x"}], ")"}], "k"]}], ")"}]}]}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"TF", "[", 
+       RowBox[{"x_", ",", "c_"}], "]"}], "=", 
+      RowBox[{
+       SubsuperscriptBox["\[Sum]", 
+        RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"PoissonDistribution", "[", "c", "]"}], ",", 
+          RowBox[{"k", "-", "1"}]}], "]"}], 
+        RowBox[{"(", 
+         SuperscriptBox["x", "k"], ")"}]}]}]}], ";"}]}]}], "Code"]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.752675968863862*^9, 3.752675979901124*^9}, 
+   3.752676014494145*^9, {3.752676114946381*^9, 3.752676208165197*^9}, {
+   3.752676729240902*^9, 3.752676761572123*^9}, {3.752676986708294*^9, 
+   3.752676997435384*^9}, {3.752677028470233*^9, 3.752677029054215*^9}, {
+   3.752853330296872*^9, 3.752853371913348*^9}, {3.752932682218368*^9, 
+   3.7529327421542253`*^9}, {3.753683123914184*^9, 3.7536831563651114`*^9}, {
+   3.753689020752536*^9, 3.753689056227304*^9}, {3.753689095729683*^9, 
+   3.7536890972328653`*^9}, 3.796014931465599*^9, 3.796015091926937*^9, {
+   3.796016170675702*^9, 3.796016249066368*^9}, {3.796016294034622*^9, 
+   3.796016370239607*^9}, {3.796018226151412*^9, 3.7960182562574463`*^9}, {
+   3.796018310174814*^9, 3.796018323267129*^9}, {3.796018468680421*^9, 
+   3.796018470286165*^9}, {3.796018504481048*^9, 3.796018505204979*^9}, {
+   3.796018556299238*^9, 3.796018557800342*^9}, {3.7960186662499723`*^9, 
+   3.796018688554817*^9}, {3.796018731964879*^9, 3.79601881583983*^9}, {
+   3.7960190381834373`*^9, 3.796019038652646*^9}, {3.796020981824233*^9, 
+   3.7960209886536922`*^9}, {3.79602103634258*^9, 3.796021040302864*^9}, {
+   3.7960217111538973`*^9, 3.796021711638109*^9}, {3.796034012664027*^9, 
+   3.796034014964199*^9}, {3.796035821335743*^9, 3.796035823739892*^9}},
+ CellLabel->
+  "In[271]:=",ExpressionUUID->"3648b6e5-4a33-4193-a836-491d1bdd8cf7"],
+
+Cell[TextData[{
+ "\nI solve the system of equations graphically. Given the functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["F", "1"], "(", "g", ")"}], " ", "=", " ", 
+    RowBox[{
+     SubscriptBox["f", "1"], "(", 
+     RowBox[{
+      SubscriptBox["f", "2"], "(", "g", ")"}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "27dba46b-e913-427a-9241-40d2f3906c15"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SubscriptBox["F", "2"], "(", "t", ")"}], " ", "=", " ", 
+     RowBox[{
+      SubscriptBox["f", "2"], 
+      RowBox[{
+       SubscriptBox["f", "1"], "(", "t", ")"}]}]}], ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "23980dc8-2804-416e-b1a5-3e146752338b"],
+ ", the intersections of functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["F", "1"], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "028f238f-e64d-4793-988a-130172352ffe"],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["F", "2"], " ", "with", " ", "the", " ", "bisettrix"}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "86ff4ca8-9c17-46db-87ca-718a24a57bfe"],
+ " represents the  solutions of our original system of equations. In the \
+graphical methods the stable solution is given by the solution where t\
+\[LineSeparator]he  slope of the function is  less than 1. Lines represents \
+the function composition ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["F", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "9ceb5ba2-db23-49e5-8d36-78455e5141e2"],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["F", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "6c4269af-d8ef-40cc-96a9-9a0a263d2ed5"]
+}], "Text",
+ CellChangeTimes->{
+  3.7960190869703083`*^9, {3.796020897299006*^9, 3.796020898624192*^9}, {
+   3.7960209497082663`*^9, 3.796020960426279*^9}, {3.7960341966844463`*^9, 
+   3.796034207046032*^9}, {3.796035585854414*^9, 3.7960358025119658`*^9}, {
+   3.796035834248506*^9, 3.796035838133788*^9}, {3.7960358929960613`*^9, 
+   3.796036193961053*^9}, 
+   3.796036376224584*^9},ExpressionUUID->"90247455-3e27-4ad6-b0fb-\
+fa17f8d23242"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"c", "=", "1"}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"G", "[", 
+        RowBox[{
+         RowBox[{"TF", "[", 
+          RowBox[{"x", ",", "d"}], "]"}], ",", "c"}], "]"}], ",", 
+       RowBox[{"TF", "[", 
+        RowBox[{
+         RowBox[{"G", "[", 
+          RowBox[{"x", ",", "c"}], "]"}], ",", "d"}], "]"}], ",", "x"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{",", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Genes\>\"", ",", "\"\<TFs\>\""}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", "0", ",", "4"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.796020963034608*^9, 3.796020965527483*^9}, {
+  3.796021014860291*^9, 3.796021015126361*^9}, {3.796021047545342*^9, 
+  3.796021158675208*^9}, {3.7960212696308737`*^9, 3.796021269759631*^9}, {
+  3.79602172710329*^9, 3.796021727495932*^9}, {3.796034025829013*^9, 
+  3.7960340334656563`*^9}, {3.796034095606957*^9, 3.7960341656059647`*^9}, {
+  3.796035333156101*^9, 3.796035357484684*^9}, {3.796035402776767*^9, 
+  3.796035405321662*^9}, {3.7960354398402023`*^9, 3.7960354402684307`*^9}, {
+  3.796035479533207*^9, 3.796035565766081*^9}},
+ CellLabel->
+  "In[275]:=",ExpressionUUID->"bd418629-cd14-4b80-892f-fda6866bb5b9"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`d$$], 0, 4}}, Typeset`size$$ = {444., {109., 113.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`d$245964$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`d$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`d$$, $CellContext`d$245964$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`G[
+          $CellContext`TF[$CellContext`x, $CellContext`d$$], $CellContext`c], \
+
+         $CellContext`TF[
+          $CellContext`G[$CellContext`x, $CellContext`c], $CellContext`d$$], \
+$CellContext`x}, {$CellContext`x, 0, 1}, PlotStyle -> {Null, Null, Black}, 
+        PlotLegends -> {"Genes", "TFs"}], 
+      "Specifications" :> {{$CellContext`d$$, 0, 4}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{489., {154., 160.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.79602114076047*^9, 3.7960211598606567`*^9}, 
+   3.796021236583948*^9, 3.796021270455956*^9, 3.796021686297659*^9, 
+   3.796021720766136*^9, {3.796034021275588*^9, 3.796034033958296*^9}, 
+   3.7960340963727922`*^9, {3.7960341458330803`*^9, 3.79603416733589*^9}, 
+   3.796035359110117*^9, 3.7960354061386957`*^9, 3.7960354408593683`*^9, {
+   3.7960354806168013`*^9, 3.7960355712309732`*^9}, 3.796036243700338*^9},
+ CellLabel->
+  "Out[276]=",ExpressionUUID->"fa057358-16c5-4612-a780-7d2fbafd69f0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "\[LineSeparator]\n",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    StyleBox["Note", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["that", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["the", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["average", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["in", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["degree", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["of", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["TFs", "Text"], 
+    StyleBox[" ", "Text"], 
+    StyleBox["is", "Text"], 
+    StyleBox[" ", "Text"], Cell[TextData[{
+     Cell[BoxData[
+      FormBox[
+       RowBox[{"<", 
+        SuperscriptBox["c", "in"]}], TraditionalForm]],ExpressionUUID->
+      "b96aa4d7-2972-4603-b025-65a042ce765d"],
+     ">= c+1"
+    }],ExpressionUUID->"12849453-8e57-4bcc-9e8a-a698644323cb"]}], 
+   "\[LineSeparator]"}]],ExpressionUUID->
+  "cedeb6d5-502f-44fd-9f7b-06f7293a64d9"],
+ " and the average in degree of genes is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"<", 
+    SuperscriptBox["d", "in"]}], TraditionalForm]],ExpressionUUID->
+  "d13a490f-2b14-4c6b-9b34-83d93c7e5033"],
+ ">= d+1"
+}], "Text",
+ CellChangeTimes->{{3.796036422692748*^9, 
+  3.796036483406616*^9}},ExpressionUUID->"3c82bcfb-696b-4848-8aea-\
+b362fd16dbd7"]
+}, Open  ]]
+},
+WindowSize->{1440, 794},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 296, 7, 160, "Title",ExpressionUUID->"6322ba30-aa11-45f1-b37f-c2c4b5e1e2cc"],
+Cell[879, 31, 1767, 54, 123, "Subtitle",ExpressionUUID->"23997204-3b4f-47ee-9ffe-8fcdb189df2a"],
+Cell[2649, 87, 2649, 58, 164, "Input",ExpressionUUID->"3648b6e5-4a33-4193-a836-491d1bdd8cf7",
+ InitializationCell->True],
+Cell[5301, 147, 2285, 64, 104, "Text",ExpressionUUID->"90247455-3e27-4ad6-b0fb-fa17f8d23242"],
+Cell[CellGroupData[{
+Cell[7611, 215, 1549, 38, 73, "Input",ExpressionUUID->"bd418629-cd14-4b80-892f-fda6866bb5b9"],
+Cell[9163, 255, 2339, 46, 333, "Output",ExpressionUUID->"fa057358-16c5-4612-a780-7d2fbafd69f0"]
+}, Open  ]],
+Cell[11517, 304, 1305, 42, 108, "Text",ExpressionUUID->"3c82bcfb-696b-4848-8aea-b362fd16dbd7"]
+}, Open  ]]
+}
+]
+*)
+

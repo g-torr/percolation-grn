@@ -1,0 +1,658 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24537,        648]
+NotebookOptionsPosition[     22530,        607]
+NotebookOutlinePosition[     22866,        622]
+CellTagsIndexPosition[     22823,        619]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Percolation analysis", "Title",ExpressionUUID->"8363a123-5159-44c1-9f38-abbc8c0cf771"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Graphical method to solve the system of equations:\n", "Text"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", " ", "=", " ", 
+    RowBox[{"p", 
+     RowBox[{
+      SubscriptBox["\[Sum]", 
+       RowBox[{"k", "=", "1"}]], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["P", "D"], "in"], "(", "k", ")"}], 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "-", "t"}], ")"}], "k"]}], ")"}]}]}]}]}], 
+   TraditionalForm]],ExpressionUUID->"5842050d-9400-4c0c-b95e-7bc185583ee6"],
+ "  = p ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["f", "1"], "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "41e967e0-235e-41d4-86ed-51414cfc160d"],
+ "; \n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Sum]", 
+       RowBox[{"k", "=", "1"}]], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["P", "C"], "in"], "(", "k", ")"}], "  ", 
+       SuperscriptBox["g", "k"]}]}], "=", " ", 
+     RowBox[{
+      SubscriptBox["f", "2"], "(", "g", ")"}]}]}], TraditionalForm]],
+  ExpressionUUID->"073f77e0-32e5-471a-933b-49725d604f2d"],
+ " "
+}], "Section",
+ CellChangeTimes->{{3.7960424371538563`*^9, 3.7960424525068407`*^9}, {
+  3.796043189073831*^9, 3.796043207036707*^9}, {3.796043396308967*^9, 
+  3.796043396590786*^9}},ExpressionUUID->"31d3b92d-be06-46eb-bbb6-\
+b7b790f8f761"],
+
+Cell[CellGroupData[{
+
+Cell["Network of type I", "Subsection",
+ CellChangeTimes->{{3.7960430699969587`*^9, 3.796043104411322*^9}, 
+   3.796044282834429*^9},ExpressionUUID->"5fc90ac6-5006-49fc-92a5-\
+a0327f4b366e"],
+
+Cell["\<\
+In degree of genes  and TFs is a shifted Poisson distribution. Below I solve  \
+symbolically the cavity equation for the fraction of genes and TFs in aOC.\
+\>", "Text",
+ CellChangeTimes->{{3.7960425606616573`*^9, 3.7960425735135736`*^9}, {
+  3.796044435430338*^9, 
+  3.796044445860345*^9}},ExpressionUUID->"5cd94ba1-fe5c-45a1-9625-\
+f6c4b7f51124"],
+
+Cell[BoxData[
+ RowBox[{"\n", 
+  StyleBox[
+   RowBox[{
+    RowBox[{"d", "=."}], "\n", 
+    RowBox[{"c", "=."}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"G", "[", 
+       RowBox[{"x_", ",", "d_", ",", "p_"}], "]"}], "=", " ", 
+      RowBox[{"p", 
+       RowBox[{
+        SubsuperscriptBox["\[Sum]", 
+         RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"PoissonDistribution", "[", "d", "]"}], ",", 
+           RowBox[{"k", "-", "1"}]}], "]"}], 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"1", "-", "x"}], ")"}], "k"]}], ")"}]}]}]}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"TF", "[", 
+       RowBox[{"x_", ",", "c_"}], "]"}], "=", 
+      RowBox[{
+       SubsuperscriptBox["\[Sum]", 
+        RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"PoissonDistribution", "[", "c", "]"}], ",", 
+          RowBox[{"k", "-", "1"}]}], "]"}], 
+        RowBox[{"(", 
+         SuperscriptBox["x", "k"], ")"}]}]}]}], ";"}]}], "Code"]}]], "Code",
+ CellChangeTimes->{{3.7960425915025253`*^9, 3.796042593781665*^9}, {
+   3.7960426334468527`*^9, 3.796042663100976*^9}, {3.796042693600039*^9, 
+   3.796042839051806*^9}, {3.796043013690279*^9, 3.7960430214005938`*^9}, {
+   3.796043139722228*^9, 3.796043155746105*^9}, 3.796043274069776*^9, {
+   3.796044491995121*^9, 3.796044513213778*^9}},
+ CellLabel->
+  "In[369]:=",ExpressionUUID->"b2788c36-2221-4169-a9b7-f2ebacd8ca07"],
+
+Cell[TextData[{
+ "\nWe solve the system of equations graphically. Given the functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", 
+     RowBox[{"p", ",", "g"}], ")"}], " ", "=", 
+    RowBox[{"pF", "(", "g", ")"}], " "}], TraditionalForm]],ExpressionUUID->
+  "891dbbb9-4464-4fdf-ba10-da063c4604f9"],
+ " with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"F", "(", "g", ")"}], "=", " ", 
+    RowBox[{
+     SubscriptBox["f", "1"], "(", 
+     RowBox[{
+      SubscriptBox["f", "2"], "(", "g", ")"}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "64137572-7ff2-418a-b6b4-9b8af31af4fc"],
+ ", the intersections of functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "  "}], TraditionalForm]],ExpressionUUID->
+  "291f1c9c-1b3e-4d54-9173-55b4589778a3"],
+ " with the identity function  represents the  solutions of the original \
+system of equations. In the graphical methods the stable solution is given by \
+the solution where the  slope of the function is  less than 1. Lines \
+represents the function composition of and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   Cell["H(g,p)",ExpressionUUID->"dea0ea96-d85c-4c8e-9058-131e41c7ab5f"], 
+    " "}], TraditionalForm]],ExpressionUUID->
+  "d079a856-b479-4f72-b55b-d7d912ab877c"],
+ "for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "f9082df8-6668-49c5-8b69-bfdf8cd75355"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", "=", "0.95"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "b84a24cf-5983-4fcb-9487-02d5f880fbf1"],
+ ". \nThe plot on the right represents he functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", 
+     RowBox[{"g", ",", "p"}], ")"}], "-", "g"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "87460611-ae1a-4ad8-b3ea-ac5339c933de"],
+ ". In this representation fixed points are the roots of the graph."
+}], "Text",
+ CellChangeTimes->{{3.7960432818309517`*^9, 3.7960432951437473`*^9}, {
+  3.796043401572782*^9, 3.796043478902465*^9}, {3.796043513429502*^9, 
+  3.7960436325512247`*^9}, {3.796044813121649*^9, 
+  3.796044919788927*^9}},ExpressionUUID->"b4d0cf45-828d-4db5-abba-\
+07f9f9e0b8ea"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Alpha]", " ", "=", " ", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"c", " ", "=", " ", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"p", " ", "=", " ", "0.95"}], ";"}], "\n", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"{", "\n", " ", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", "   ", 
+          RowBox[{
+           RowBox[{"G", "[", 
+            RowBox[{
+             RowBox[{"TF", "[", 
+              RowBox[{"g", ",", " ", "c"}], "]"}], ",", " ", "d", ",", " ", 
+             "1"}], "]"}], " ", ",", 
+           RowBox[{"G", "[", 
+            RowBox[{
+             RowBox[{"TF", "[", 
+              RowBox[{"g", ",", " ", "c"}], "]"}], ",", " ", "d", ",", " ", 
+             "p"}], "]"}], " ", ",", "  ", "g"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"g", ",", " ", "0", ",", " ", "1"}], "}"}], ",", " ", "\n", 
+         " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{",", "Green", ",", "Black"}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<p=1\>\"", ",", "\"\<p=0.95\>\""}], "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Medium"}]}], "]"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", "   ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"G", "[", 
+             RowBox[{
+              RowBox[{"TF", "[", 
+               RowBox[{"g", ",", " ", "c"}], "]"}], ",", " ", "d", ",", " ", 
+              "1"}], "]"}], " ", "-", "g"}], ",", 
+           RowBox[{
+            RowBox[{"G", "[", 
+             RowBox[{
+              RowBox[{"TF", "[", 
+               RowBox[{"g", ",", " ", "c"}], "]"}], ",", " ", "d", ",", " ", 
+              "p"}], "]"}], " ", "-", "  ", "g"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"g", ",", " ", "0", ",", " ", "1"}], "}"}], ",", " ", "\n", 
+         " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{",", "Green", ",", "Black"}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<p=1\>\"", ",", "\"\<p=0.95\>\""}], "}"}]}]}], "]"}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"d", ",", " ", "1", ",", " ", "5", ",", " ", 
+       RowBox[{"Appearance", " ", "\[Rule]", " ", "\"\<Open\>\""}]}], "}"}]}],
+     "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.796043635726914*^9, 3.79604377640318*^9}, {
+   3.79604388180049*^9, 3.796043926404491*^9}, {3.796044056345531*^9, 
+   3.796044060278571*^9}, 3.796044101287751*^9, {3.796044151220623*^9, 
+   3.796044179614147*^9}, {3.796044571444769*^9, 3.796044677048108*^9}, {
+   3.7960447701998987`*^9, 3.796044788851116*^9}},
+ CellLabel->
+  "In[393]:=",ExpressionUUID->"ae9a642c-861f-47bb-aa65-8bae9432e571"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d$$ = 1., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`d$$], 1, 5}}, Typeset`size$$ = {750., {109., 113.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`d$313643$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`d$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`d$$, $CellContext`d$313643$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {
+        Plot[{
+          $CellContext`G[
+           $CellContext`TF[$CellContext`g, $CellContext`c], $CellContext`d$$, 
+           1], 
+          $CellContext`G[
+           $CellContext`TF[$CellContext`g, $CellContext`c], $CellContext`d$$, \
+$CellContext`p], $CellContext`g}, {$CellContext`g, 0, 1}, 
+         PlotStyle -> {Null, Green, Black}, PlotLegends -> {"p=1", "p=0.95"}, 
+         ImageSize -> Medium], 
+        Plot[{$CellContext`G[
+            $CellContext`TF[$CellContext`g, $CellContext`c], $CellContext`d$$,
+             1] - $CellContext`g, $CellContext`G[
+            $CellContext`TF[$CellContext`g, $CellContext`c], \
+$CellContext`d$$, $CellContext`p] - $CellContext`g}, {$CellContext`g, 0, 1}, 
+         PlotStyle -> {Null, Green, Black}, 
+         PlotLegends -> {"p=1", "p=0.95"}]}, 
+      "Specifications" :> {{$CellContext`d$$, 1, 5, Appearance -> "Open"}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{795., {167., 173.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.79604418021601*^9, 3.796044590763253*^9, {3.796044659330699*^9, 
+   3.796044677880412*^9}, {3.7960447780176983`*^9, 3.7960447897356577`*^9}, 
+   3.7960449228839693`*^9},
+ CellLabel->
+  "Out[396]=",ExpressionUUID->"30e1da64-7311-4eb5-8198-f292f78f7e42"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.796044272870792*^9},ExpressionUUID->"b98c77cf-45a8-4f11-86ee-\
+694e9c5ea8fd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Network of type II", "Subsection",
+ CellChangeTimes->{{3.7960430699969587`*^9, 
+  3.796043104411322*^9}},ExpressionUUID->"079dcc40-befd-4514-b530-\
+e929fd1a6ac1"],
+
+Cell["In degree of TF: power law", "Text",ExpressionUUID->"0845cf13-6f70-4269-9279-e7307bd128b4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"k_", ",", " ", "\[Lambda]_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"1", "/", 
+     RowBox[{"k", "^", "\[Lambda]"}]}], " ", "-", " ", 
+    RowBox[{"1", "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"k", " ", "+", " ", "1"}], ")"}], "^", "\[Lambda]"}]}]}], 
+   ")"}]}]], "Code",
+ CellLabel->
+  "In[298]:=",ExpressionUUID->"49b85b0e-3b6a-4045-ab16-a0bbd9bb45b8"],
+
+Cell["\<\
+In degree of genes is shifted Poisson. Below I solve  symbolically the cavity \
+equation for the fraction of genes and TFs in aOC.\
+\>", "Text",
+ CellChangeTimes->{{3.7960425606616573`*^9, 
+  3.7960425735135736`*^9}},ExpressionUUID->"35f2c562-9bdd-45a1-bd45-\
+9339185206ba"],
+
+Cell[BoxData[{
+ RowBox[{"\[Lambda]", " ", "=."}], "\n", 
+ RowBox[{"d", " ", "=."}], "\n", 
+ RowBox[{
+  RowBox[{"p", " ", "=."}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G", "[", 
+    RowBox[{"g_", ",", " ", "d_", ",", " ", "p_"}], "]"}], " ", "=", "  ", 
+   RowBox[{"p", " ", 
+    RowBox[{
+     SubsuperscriptBox["\[Sum]", 
+      RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+     RowBox[{
+      RowBox[{"PDF", "[", 
+       RowBox[{
+        RowBox[{"PoissonDistribution", "[", "d", "]"}], ",", 
+        RowBox[{"k", "-", "1"}]}], "]"}], 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"1", "-", "g"}], ")"}], "k"]}], ")"}]}]}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TF", "[", 
+    RowBox[{"g_", ",", " ", "\[Lambda]_", ",", " ", "\[Alpha]_"}], "]"}], " ",
+    "=", " ", 
+   RowBox[{
+    SubsuperscriptBox["\[Sum]", 
+     RowBox[{"k", "=", "1"}], "\[Infinity]"], " ", 
+    RowBox[{
+     RowBox[{"P", "[", 
+      RowBox[{"k", ",", " ", "\[Lambda]"}], "]"}], " ", 
+     RowBox[{"(", 
+      SuperscriptBox["g", "k"], ")"}]}]}]}], ";"}]}], "Code",
+ CellChangeTimes->{{3.7960425915025253`*^9, 3.796042593781665*^9}, {
+   3.7960426334468527`*^9, 3.796042663100976*^9}, {3.796042693600039*^9, 
+   3.796042839051806*^9}, {3.796043013690279*^9, 3.7960430214005938`*^9}, {
+   3.796043139722228*^9, 3.796043155746105*^9}, 3.796043274069776*^9},
+ CellLabel->
+  "In[304]:=",ExpressionUUID->"a5bb4f67-9ec5-4c11-abad-39f1df4ba69a"],
+
+Cell[TextData[{
+ "\nWe solve the system of equations graphically. Given the functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", 
+     RowBox[{"p", ",", "g"}], ")"}], " ", "=", 
+    RowBox[{"pF", "(", "g", ")"}], " "}], TraditionalForm]],ExpressionUUID->
+  "a3eb432d-1083-4e3f-b1aa-d2194b25f662"],
+ " with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"F", "(", "g", ")"}], "=", " ", 
+    RowBox[{
+     SubscriptBox["f", "1"], "(", 
+     RowBox[{
+      SubscriptBox["f", "2"], "(", "g", ")"}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "ae878e2f-aad7-4a90-8a9d-3d1eebb83187"],
+ ", the intersections of functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "  "}], TraditionalForm]],ExpressionUUID->
+  "312c9013-cfc3-4c24-8e67-42745fe03ca8"],
+ " with the identity function  represents the  solutions of the original \
+system of equations. In the graphical methods the stable solution is given by \
+the solution where the  slope of the function is  less than 1. Lines \
+represents the function composition of and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   Cell["H(g,p)",ExpressionUUID->"9fa97ca3-31b1-4599-a512-3b12cd922674"], 
+    " "}], TraditionalForm]],ExpressionUUID->
+  "5d7e87df-24a4-4e0f-a179-afbf931a119e"],
+ "for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "eb8ae4c8-8e80-46b9-a135-1909e953cb91"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", "=", "0.95"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "0fc14254-1971-4157-9008-9811e93cd848"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.7960432818309517`*^9, 3.7960432951437473`*^9}, {
+  3.796043401572782*^9, 3.796043478902465*^9}, {3.796043513429502*^9, 
+  3.7960436325512247`*^9}},ExpressionUUID->"bdbbe168-eec7-47ca-a8e6-\
+fc322f12b4c8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Alpha]", " ", "=", " ", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"d", " ", "=", " ", "0.4"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"p", " ", "=", " ", "0.95"}], ";"}], "\n", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"{", "\n", " ", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", "   ", 
+          RowBox[{
+           RowBox[{"G", "[", 
+            RowBox[{
+             RowBox[{"TF", "[", 
+              RowBox[{"g", ",", " ", "\[Lambda]", ",", " ", "\[Alpha]"}], 
+              "]"}], ",", " ", "d", ",", " ", "1"}], "]"}], " ", ",", 
+           RowBox[{"G", "[", 
+            RowBox[{
+             RowBox[{"TF", "[", 
+              RowBox[{"g", ",", " ", "\[Lambda]", ",", " ", "\[Alpha]"}], 
+              "]"}], ",", " ", "d", ",", " ", "p"}], "]"}], " ", ",", "  ", 
+           "g"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"g", ",", " ", "0", ",", " ", "1"}], "}"}], ",", " ", "\n", 
+         " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{",", "Green", ",", "Black"}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<p=1\>\"", ",", "\"\<p=0.95\>\""}], "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Medium"}]}], "]"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", "   ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"G", "[", 
+             RowBox[{
+              RowBox[{"TF", "[", 
+               RowBox[{"g", ",", " ", "\[Lambda]", ",", " ", "\[Alpha]"}], 
+               "]"}], ",", " ", "d", ",", " ", "1"}], "]"}], " ", "-", "g"}], 
+           ",", 
+           RowBox[{
+            RowBox[{"G", "[", 
+             RowBox[{
+              RowBox[{"TF", "[", 
+               RowBox[{"g", ",", " ", "\[Lambda]", ",", " ", "\[Alpha]"}], 
+               "]"}], ",", " ", "d", ",", " ", "p"}], "]"}], " ", "-", "  ", 
+            "g"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"g", ",", " ", "0", ",", " ", "1"}], "}"}], ",", " ", "\n", 
+         " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{",", "Green", ",", "Black"}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<p=1\>\"", ",", "\"\<p=0.95\>\""}], "}"}]}]}], "]"}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Lambda]", ",", " ", "1", ",", " ", "5", ",", " ", 
+       RowBox[{"Appearance", " ", "\[Rule]", " ", "\"\<Open\>\""}]}], "}"}]}],
+     "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.796043635726914*^9, 3.79604377640318*^9}, {
+   3.79604388180049*^9, 3.796043926404491*^9}, {3.796044056345531*^9, 
+   3.796044060278571*^9}, 3.796044101287751*^9, {3.796044151220623*^9, 
+   3.796044179614147*^9}},
+ CellLabel->
+  "In[365]:=",ExpressionUUID->"4fff5ff0-6187-4648-941d-9734d963b181"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Lambda]$$ = 2.25, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Lambda]$$], 1, 5}}, Typeset`size$$ = {
+    750., {109., 113.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Lambda]$285218$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Lambda]$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Lambda]$$, $CellContext`\[Lambda]$285218$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {
+        Plot[{
+          $CellContext`G[
+           $CellContext`TF[$CellContext`g, $CellContext`\[Lambda]$$, \
+$CellContext`\[Alpha]], $CellContext`d, 1], 
+          $CellContext`G[
+           $CellContext`TF[$CellContext`g, $CellContext`\[Lambda]$$, \
+$CellContext`\[Alpha]], $CellContext`d, $CellContext`p], $CellContext`g}, \
+{$CellContext`g, 0, 1}, PlotStyle -> {Null, Green, Black}, 
+         PlotLegends -> {"p=1", "p=0.95"}, ImageSize -> Medium], 
+        Plot[{$CellContext`G[
+            $CellContext`TF[$CellContext`g, $CellContext`\[Lambda]$$, \
+$CellContext`\[Alpha]], $CellContext`d, 1] - $CellContext`g, $CellContext`G[
+            $CellContext`TF[$CellContext`g, $CellContext`\[Lambda]$$, \
+$CellContext`\[Alpha]], $CellContext`d, $CellContext`p] - $CellContext`g}, \
+{$CellContext`g, 0, 1}, PlotStyle -> {Null, Green, Black}, 
+         PlotLegends -> {"p=1", "p=0.95"}]}, 
+      "Specifications" :> {{$CellContext`\[Lambda]$$, 1, 5, Appearance -> 
+         "Open"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{795., {167., 173.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.79604418021601*^9},
+ CellLabel->
+  "Out[368]=",ExpressionUUID->"52e94367-575a-484c-8d77-df6f928301f6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440, 792},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 92, 0, 98, "Title",ExpressionUUID->"8363a123-5159-44c1-9f38-abbc8c0cf771"],
+Cell[CellGroupData[{
+Cell[697, 26, 1484, 46, 130, "Section",ExpressionUUID->"31d3b92d-be06-46eb-bbb6-b7b790f8f761"],
+Cell[CellGroupData[{
+Cell[2206, 76, 190, 3, 54, "Subsection",ExpressionUUID->"5fc90ac6-5006-49fc-92a5-a0327f4b366e"],
+Cell[2399, 81, 357, 7, 35, "Text",ExpressionUUID->"5cd94ba1-fe5c-45a1-9625-f6c4b7f51124"],
+Cell[2759, 90, 1654, 45, 144, "Code",ExpressionUUID->"b2788c36-2221-4169-a9b7-f2ebacd8ca07"],
+Cell[4416, 137, 2265, 61, 106, "Text",ExpressionUUID->"b4d0cf45-828d-4db5-abba-07f9f9e0b8ea"],
+Cell[CellGroupData[{
+Cell[6706, 202, 2952, 74, 199, "Input",ExpressionUUID->"ae9a642c-861f-47bb-aa65-8bae9432e571"],
+Cell[9661, 278, 2589, 53, 393, "Output",ExpressionUUID->"30e1da64-7311-4eb5-8198-f292f78f7e42"]
+}, Open  ]],
+Cell[12265, 334, 147, 3, 52, "Input",ExpressionUUID->"b98c77cf-45a8-4f11-86ee-694e9c5ea8fd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12449, 342, 168, 3, 54, "Subsection",ExpressionUUID->"079dcc40-befd-4514-b530-e929fd1a6ac1"],
+Cell[12620, 347, 97, 0, 35, "Text",ExpressionUUID->"0845cf13-6f70-4269-9279-e7307bd128b4"],
+Cell[12720, 349, 453, 14, 52, "Code",ExpressionUUID->"49b85b0e-3b6a-4045-ab16-a0bbd9bb45b8"],
+Cell[13176, 365, 284, 6, 35, "Text",ExpressionUUID->"35f2c562-9bdd-45a1-bd45-9339185206ba"],
+Cell[13463, 373, 1499, 42, 163, "Code",ExpressionUUID->"a5bb4f67-9ec5-4c11-abad-39f1df4ba69a"],
+Cell[14965, 417, 1876, 52, 83, "Text",ExpressionUUID->"bdbbe168-eec7-47ca-a8e6-fc322f12b4c8"],
+Cell[CellGroupData[{
+Cell[16866, 473, 3025, 76, 199, "Input",ExpressionUUID->"4fff5ff0-6187-4648-941d-9734d963b181"],
+Cell[19894, 551, 2584, 50, 359, "Output",ExpressionUUID->"52e94367-575a-484c-8d77-df6f928301f6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
