@@ -7,8 +7,16 @@ This repository requires:
 - Mathematica and wolframscript installed
 - jupyter notebooks
 
-Files are divided by content
+Files are divided by content. Inside each folder, use the following order to execute files:
 
+1. *.wls
+2. *.py
+3. *ipynb
+
+Also Section_4/macroscopic-cavity should be run first.
+
+---
+## Content of the repository
 - Section 3 contains a Mathematica notebook
 - Section 4 contains:
 	- lib: a folder with interal routines for python scripts
@@ -34,8 +42,6 @@ Files are divided by content
 		
 		
 
-
-pruning-aOC  This folder for a family of synthetic network  a finite fraction of genes are removed, and the  size of the "AND out component" is evauated.
 ## Extensions for bipartite graphs in networkx 
 This repository relies heavily on networkx. Some method for direct bipartite graph generation have been extendend. In particular:
 
