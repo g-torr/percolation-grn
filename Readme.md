@@ -1,10 +1,14 @@
+# Percolation of gene regulatory network,
+
 This repository contins all the code to reproduce the figures in the paper.
 This repository requires:
 
 - Python version 3.6 or higher
 - Mathematica and wolframscript installed
 - jupyter notebooks
+
 Files are divided by content
+
 - Section 3 contains a Mathematica notebook
 - Section 4 contains:
 	- lib: a folder with interal routines for python scripts
@@ -32,3 +36,11 @@ Files are divided by content
 
 
 pruning-aOC  This folder for a family of synthetic network  a finite fraction of genes are removed, and the  size of the "AND out component" is evauated.
+## Extensions for bipartite graphs in networkx 
+This repository relies heavily on networkx. Some method for direct bipartite graph generation have been extendend. In particular:
+
+- random graph 
+- configurational model
+
+Moreover in- and out-component are computed for directed graph.
+Go in the `Section-4/lib` to know more
