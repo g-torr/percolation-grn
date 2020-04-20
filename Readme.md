@@ -20,10 +20,12 @@ Also Section_4/macroscopic-cavity should be run first.
 - Section 3 contains a Mathematica notebook
 - Section 4 contains:
 	- lib: a folder with interal routines for python scripts
-	- macroscopic-cavity: a folder containing
+	- macroscopic-cavity: this folder compute the macroscopic cavity theory for type 1 networks.
+	
 		- cavity.wls, which produces the files *.txt in this folder
 		- macroscopic_cavity.ipynb, which converts the text files into heatmaps
-	- pruning-aOC; percolation on synthetic network:
+		
+	- pruning-aOC; percolation  on synthetic network:
 		- type_I: a folder for type I networks, it contains:
 			- perc_typeI.py: which run the percolation problem and create a .pkl file with output.
 			- type_1.ipynb which combines the simulation output with the theory from micrscopic-cavity folder
@@ -36,7 +38,7 @@ Also Section_4/macroscopic-cavity should be run first.
 	- single-instance: microscopic cavity dynamics
 		- percolation.py: generate the output in the file .pkl
 		- non-linear.ipyn compare the final state of the simulated dynamics with macroscopic cavity (from folder macroscopic-cavity)
-	- knockout-cascade:
+	- knockout-cascade: single gene removal
 		- knockout_cascade.py: the output is saved in the folder kncokout-cascade_multiple
 		- knckout-cascade.ipynb: which loads from the folder  kncokout-cascade_multiple
 		
