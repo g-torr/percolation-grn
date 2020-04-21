@@ -7,7 +7,7 @@ This repository requires:
 - Mathematica and wolframscript installed
 - jupyter notebooks
 
-Files are divided by content. Inside each folder, use the following order to execute files:
+Each folder performs a task. Inside each folder, use the following order to execute files:
 
 1. *.wls
 2. *.py
@@ -21,7 +21,13 @@ Also Section_4/macroscopic-cavity should be run first.
 - Section 4 contains:
 	- lib: a folder with interal routines for python scripts
 	- macroscopic-cavity: this folder compute the macroscopic cavity theory for type 1 networks.
-	
+	- pruning-aOC; percolation  on synthetic network:	
+	- single-instance: microscopic cavity dynamics
+	- knockout-cascade: single gene removal
+
+The detailed structure of the Section 4:
+
+	- macroscopic-cavity: this folder compute the macroscopic cavity theory for type 1 networks.
 		- cavity.wls, which produces the files *.txt in this folder
 		- macroscopic_cavity.ipynb, which converts the text files into heatmaps
 		
@@ -40,7 +46,7 @@ Also Section_4/macroscopic-cavity should be run first.
 		- non-linear.ipyn compare the final state of the simulated dynamics with macroscopic cavity (from folder macroscopic-cavity)
 	- knockout-cascade: single gene removal
 		- knockout_cascade.py: the output is saved in the folder kncokout-cascade_multiple
-		- knckout-cascade.ipynb: which loads from the folder  kncokout-cascade_multiple
+		- knckout-cascade.ipynb: which loads from the folder  knockout-cascade_multiple
 		
 		
 
