@@ -13,7 +13,7 @@ import argparse
 from multiprocessing import Pool
 #from scipy.stats import poisson
 sys.path.insert(0, "../../../../lib")# add the library folder to the path I look for modules
-sys.path.insert(0, "../lib")# add the library folder to the path I look for modules
+sys.path.insert(0, "../../lib")# add the library folder to the path I look for modules
 from directed_random_graph import *# this is the function I wrote
 import non_linear.percolation_Genes as nl
 
