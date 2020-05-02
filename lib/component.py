@@ -27,9 +27,9 @@ def out_component(G):
     #i=next(Gc.nodes_iter())
     return nx.descendants(G,i).union({i})
 def SCC(G):
-	''' Returns the set of nodes in the strongly connected component of G'''
-	Gc=maximum_strongly_connected_component_subgraph(G)
-	return set(Gc.nodes())
+    ''' Returns the set of nodes in the strongly connected component of G'''
+    Gc=maximum_strongly_connected_component_subgraph(G)
+    return set(Gc.nodes())
 class num_Poisson:
 	def __init__(self,d,c,alpha):
 		self.d=d
