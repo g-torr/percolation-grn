@@ -54,7 +54,7 @@ class cavity:
         num_cavity.index.name = "d"
         return num_cavity
 
-    def heatmap(self):
+    def heatmap(self,**kwargs):
         fig = plt.figure()
         cavity_tb = self.gene_cavity_tb
         '''
@@ -63,12 +63,12 @@ class cavity:
         else:
             title("Number of solutions. TF off")
         '''
-        cmap = plt.cm.get_cmap('viridis')
+        #cmap = plt.cm.get_cmap('viridis')
         # bounds = np.linspace(0.5, 3.5, 4)
         # norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
         plt.imshow(cavity_tb, origin="lower", extent=(
         min(list(cavity_tb.index)) + 1, max(list(cavity_tb.index)) + 1, min(list(cavity_tb.columns)) + 1,
-        max(list(cavity_tb.columns)) + 1), aspect="auto", cmap=cmap)
+        max(list(cavity_tb.columns)) + 1), aspect="auto", **kwargs)
         # colorbar()
         plt.xlabel("Mean gene in-degree")
         plt.ylabel("Mean TF in-degree")

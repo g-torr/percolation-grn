@@ -8,7 +8,7 @@ import itertools
 from multiprocessing import Pool
 import scipy
 import sys
-sys.path.insert(0, "../../lib")# add the library folder to the path I look for modules
+sys.path.insert(0, "../../../lib")# add the library folder to the path I look for modules
 #import configurational_model
 import configurational_model_regulatory
 import pruning

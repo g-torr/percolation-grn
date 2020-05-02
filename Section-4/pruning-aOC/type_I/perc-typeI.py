@@ -6,7 +6,7 @@ from multiprocessing import Pool
 import pickle
 import random
 import networkx as nx
-sys.path.insert(0, "../../lib")# add the library folder to the path I look for modules
+sys.path.insert(0, "../../../lib")# add the library folder to the path I look for modules
 import component as co
 import  directed_random_graph # this is the module  I wrote in /lib
 
