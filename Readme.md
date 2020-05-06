@@ -32,8 +32,8 @@ Also Section_4/macroscopic-cavity should be run first.
 ## Extensions for bipartite graphs in networkx 
 This repository relies heavily on networkx. Some method for direct bipartite graph generation have been extendend. In particular:
 
-- random graph 
-- configurational model
+- directed biparite random graph generation 
+- configurational model for directed bipartite graph
 
 Moreover in- and out-component are computed for directed graph.
 Go in the `lib` folder  to know more
