@@ -17,13 +17,16 @@ Also Section_4/macroscopic-cavity should be run first.
 
 ---
 ## Content of the repository
+- lib: a folder with interal routines for python scripts
 - Section 3 contains a Mathematica notebook
 - Section 4 contains:
-	- lib: a folder with interal routines for python scripts
+
 	- macroscopic-cavity: this folder compute the macroscopic cavity theory for type 1 networks.
 	- pruning-aOC; percolation  on synthetic network:	
 	- single-instance: microscopic cavity dynamics
 	- knockout-cascade: single gene removal
+- Section 5 contains:
+	strongly connected component evaluation.
 
 
 ## Extensions for bipartite graphs in networkx 
@@ -33,4 +36,4 @@ This repository relies heavily on networkx. Some method for direct bipartite gra
 - configurational model
 
 Moreover in- and out-component are computed for directed graph.
-Go in the `Section-4/lib` to know more
+Go in the `lib` folder  to know more
