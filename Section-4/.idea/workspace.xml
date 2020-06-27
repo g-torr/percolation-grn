@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18fa2fc4-50cf-4e4c-a5c6-a1bcd5f2bdba" name="Default Changelist" comment="" />
+    <list default="true" id="18fa2fc4-50cf-4e4c-a5c6-a1bcd5f2bdba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gene-knockout/knockout-cascade.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/gene-knockout/knockout-cascade.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gene-knockout/knockout-cascade.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/gene-knockout/knockout-cascade.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macroscopic-cavity/macroscopic_cavity.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/macroscopic-cavity/macroscopic_cavity.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Section-5/non-linearSCC.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Section-5/non-linearSCC.pdf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1adyqybeLpA6q1FipqBKVGEM22e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,6 +26,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -41,9 +53,9 @@
       <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="500" y="238" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812@0.23.1440.812" timestamp="1587112874430" />
-    <state x="440" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1587112716945">
+    <state x="440" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1592510713123">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state x="440" y="260" key="com.intellij.ide.util.TipDialog/0.23.1440.812@0.23.1440.812" timestamp="1587112716945" />
+    <state x="440" y="260" key="com.intellij.ide.util.TipDialog/0.23.1440.812@0.23.1440.812" timestamp="1592510713123" />
   </component>
 </project>
