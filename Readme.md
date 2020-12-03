@@ -1,6 +1,6 @@
 # Percolation of gene regulatory network,
 
-This repository contins all the code to reproduce the figures in the paper.
+This repository contins all the code to reproduce the figures of the paper https://iopscience.iop.org/article/10.1088/1742-5468/aba7b0.
 This repository requires:
 
 - Python version 3.6 or higher
