@@ -5,6 +5,7 @@ import random
 import pickle
 import argparse
 import itertools
+import logging
 from multiprocessing import Pool
 import scipy
 import sys
@@ -40,7 +41,7 @@ def create_graph_and_remove(N1, N2, gamma_G, c, perc_fraction):
     Genes, TFs, in_deg = pruning.filter_out(BG)
     genes_rm = random.sample(Genes, int(perc_fraction * N1))
     BG_filtered, count = pruning.out_nonlinear_remove(BG, Genes, TFs, genes_rm)
-    print('we are left with:', len(BG_filtered.nodes()), 'nodes in non-linear out-component')
+    logging.info('we are left with: %s nodes in non-linear out-component', str(len(BG_filtered.nodes()) ))
     return len(set(BG_filtered.nodes()).intersection(Genes))/len(Genes), len(set(BG_filtered.nodes()).intersection(TFs))/len(TFs), np.mean(
         aseq), np.mean(bseq)
 def save_obj(obj):
@@ -53,11 +54,11 @@ def main():
    parser.add_argument('--threads',type= int,default=None,help = 'number of parallel process to execute. Default behaviour is all cores availbles')
    args=parser.parse_args()
    threads= args.threads
-
+   logging.basicConfig(level=logging.INFO,format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %I:%M:%S %p')
    N1=300000
    N2=300000
    perc_fraction = 0.05
-   print('After removal, network contains ',N1*(1-perc_fraction), 'genes and ',N2, 'TFs')
+   logging.info('After removal, network contains %s genes and %s TFs',str(N1*(1-perc_fraction)), str(N2))
    gamma_Gs=np.append(np.linspace(1.9,2.6,10),[3,4,5])
    c = 0.4  # average in degree of genes is c+1
    pool=Pool(threads)

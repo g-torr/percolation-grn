@@ -41,7 +41,7 @@ p=0.95;
 \[Lambda]min= 1.8;
 \[Lambda]max = 5;
 \[Lambda]step= 0.1;
-list={d,Table[{\[Lambda],x/.NSolve[G[TF[x,\[Lambda]],d,p]-x==0&&x>=0&&x<=1,x,Reals][[-1]]},{\[Lambda],\[Lambda]min,\[Lambda]max,\[Lambda]step}]}
+list={d,Table[{\[Lambda],x/.NSolve[G[TF[x,\[Lambda]],d,p]-x==0&&x<=1&&x>0,x,Reals]},{\[Lambda],\[Lambda]min,\[Lambda]max,\[Lambda]step}]}
 Export["./genes_on_cavity.txt",list,"Table"]
 
 
@@ -49,8 +49,11 @@ Export["./genes_on_cavity.txt",list,"Table"]
 (*compute the fraction of TF in aoC*)
 
 
-list={d,Table[{\[Lambda],x/.NSolve[TF[G[x,d,p],\[Lambda]]-x==0&&x>=0&&x<=1,x,Reals][[-1]]},{\[Lambda],\[Lambda]min,\[Lambda]max,\[Lambda]step}]}
+list={d,Table[{\[Lambda],x/.NSolve[TF[G[x,d,p],\[Lambda]]-x==0&&x>0&&x<=1,x,Reals]},{\[Lambda],\[Lambda]min,\[Lambda]max,\[Lambda]step}]}
 Export["./TFs_on_cavity.txt",list,"Table"]
+
+
+
 
 
 
