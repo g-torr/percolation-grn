@@ -1,5 +1,7 @@
 # Percolation on the gene regulatory network,
-Giuseppe Torrisi et al J. Stat. Mech. (2020) 083501 https://iopscience.iop.org/article/10.1088/1742-5468/aba7b0
+## Giuseppe Torrisi et al J. Stat. Mech. (2020) 083501 https://doi.org/10.1088/1742-5468/aba7b0.
+
+See this [twitter thread](https://twitter.com/pepp_torr/status/1260539098277859328) for a short summary of what is in the paper.
 
 This repository contins all the code to reproduce the figures of the paper.
 This repository requires:
